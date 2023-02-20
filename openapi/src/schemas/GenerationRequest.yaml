@@ -1,0 +1,9 @@
+oneOf:
+    -   title: 'DNA'
+        allOf:
+        -   $ref: './CommonPart.yaml'
+        -   $ref: './dna/Dna.yaml'
+    -   title: 'Biota'
+        allOf:
+        -   $ref: './CommonPart.yaml'
+        -   $ref: './biota/Biota.yaml'

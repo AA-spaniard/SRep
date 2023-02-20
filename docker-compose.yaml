@@ -1,0 +1,44 @@
+version: "3.4"
+
+services:
+    nginx:
+        image: nginx:alpine
+        restart: on-failure
+        env_file:
+            - .env
+            - .env.local
+        ports:
+            - "${NGINX_PUBLIC_PORT:-8000}:80"
+        depends_on:
+            - php-fpm
+        volumes:
+            - ./docker/nginx/templates:/etc/nginx/templates:ro
+            - ./:/srv/www/current:cached,ro
+
+    php-fpm:
+        build:
+            dockerfile: docker/php-fpm/Dockerfile
+            context: .
+            args:
+                build_env: dev
+                GITLAB_HOST: "${GITLAB_HOST}"
+                GITLAB_SECRET: "${GITLAB_SECRET}"
+                GITLAB_USERNAME: "${GITLAB_USERNAME}"
+        volumes:
+            - /srv/www/current/dict/dist
+            - /srv/www/current/vendor
+            - ./images:/mnt/images
+            - ./:/srv/www/current
+        restart: on-failure
+        tmpfs:
+            - /srv/www/current/images
+            - /tmp
+        command: sh -c 'cp -R /mnt/images/* /srv/www/current/images/ && php-fpm -R'
+
+networks:
+    default:
+        driver: bridge
+        ipam:
+            driver: default
+            config:
+                -   subnet: 172.16.237.0/24

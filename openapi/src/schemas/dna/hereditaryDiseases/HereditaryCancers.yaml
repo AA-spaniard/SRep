@@ -1,0 +1,10 @@
+type: object
+properties:
+    hereditary_cancers_detected_list:
+        allOf:
+            - $ref: './DetectedMonogens.yaml'
+            - description: 'Block "Hereditary cancers risks"(WGS only), detailed info on those detected'
+    hereditary_cancers_list:
+        allOf:
+            - description: 'Block "Hereditary cancers risks"(WGS only), full list'
+            - $ref: './AllMonogensList.yaml'

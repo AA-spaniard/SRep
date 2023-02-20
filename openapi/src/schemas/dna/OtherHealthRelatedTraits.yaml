@@ -1,0 +1,7 @@
+type: object
+properties:
+    otherHealthRelatedTraits:
+        description: '"Other Health-Related Traits" block'
+        type: array
+        items:
+            $ref: './GenericTopic.yaml'

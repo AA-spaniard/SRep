@@ -1,0 +1,38 @@
+type: object
+required:
+    - score
+    - name
+    - descr
+    - color
+    - text
+    - snips
+properties:
+    name:
+        type: string
+    descr:
+        type: string
+    score:
+        type: integer
+    preview:
+        type: string
+        nullable: true
+    color:
+        type: string
+        enum: [ green, orange, red ]
+    text:
+        type: string
+    snips:
+        type: array
+        items:
+            type: object
+            required:
+                - snip
+                - genotype
+                - gene
+            properties:
+                snip:
+                    type: string
+                genotype:
+                    type: string
+                gene:
+                    type: string

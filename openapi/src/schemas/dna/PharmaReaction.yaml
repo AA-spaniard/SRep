@@ -1,0 +1,61 @@
+type: object
+properties:
+    pharmaReaction:
+        description: 'блок "Реакция на лекарства"'
+        type: object
+        required:
+            - drugs
+        properties:
+            drugs:
+                type: array
+                items:
+                    type: object
+                    required:
+                        - name
+                        - isNonStandard
+                    properties:
+                        name:
+                            type: string
+                        isNonStandard:
+                            type: boolean
+                        details:
+                            description: 'Поле нужно для препаратов с isNonStandard=true'
+                            type: object
+                            required:
+                                - interpretationText
+                                - drugDescription
+                                - interpretationDescriptionText
+                                - doseRecommendation
+                                - doseRecommendationDescription
+                                - snips
+                            properties:
+                                interpretationText:
+                                    description: '"Интепретация"'
+                                    type: string
+                                drugDescription:
+                                    description: '"Описание препарата"'
+                                    type: string
+                                interpretationDescriptionText:
+                                    description: '"Описание интепретация"'
+                                    type: string
+                                doseRecommendation:
+                                    description: 'Рекомендации по дозировке'
+                                    type: string
+                                doseRecommendationDescription:
+                                    description: '"Описание рекомендаций по дозировке"'
+                                    type: string
+                                snvs:
+                                    type: array
+                                    items:
+                                        type: object
+                                        required:
+                                            - snv
+                                            - gene
+                                            - genotype
+                                        properties:
+                                            snv:
+                                                type: string
+                                            gene:
+                                                type: string
+                                            genotype:
+                                                type: string

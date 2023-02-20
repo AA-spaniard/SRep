@@ -1,0 +1,9 @@
+type: object
+properties:
+    profile:
+        $ref: './Profile.yaml'
+    source:
+        $ref: './Source.yaml'
+required:
+    - profile
+    - source

@@ -1,0 +1,36 @@
+type: array
+required:
+    - id
+items:
+    type: object
+    description: "id, title, organ_system and status are always required. Other fields are required for detected diseases."
+    required:
+        - id
+        - title
+        - organ_system
+        - status
+    properties:
+        id:
+            type: string
+        title:
+            type: string
+        status:
+            type: integer
+        organ_system:
+            type: integer
+        short:
+            type: string
+        descr:
+            type: string
+        illustration_id:
+            type: string
+            enum:
+              - autosomeCompoundHeterozygote,
+              - yHemizygote,
+              - autosomeUnaffected,
+              - mtUnaffected,
+              - xHemizygote,
+              - autosomeHeterozygote,
+              - mtHemizygote,
+              - xyUnaffected,
+              - autosomeHomozygote,

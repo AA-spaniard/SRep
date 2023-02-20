@@ -1,0 +1,29 @@
+type: object
+properties:
+    firstname:
+        type: string
+        nullable: true
+    middlename:
+        type: string
+        nullable: true
+    lastname:
+        type: string
+        nullable: true
+    user_id:
+        type: number
+    locale:
+        type: string
+    office_region:
+        type: string
+        enum: [ ru, eu, jp ]
+    partner_id:
+        type: number
+        nullable: true
+        description: '63 stands for "EMC" and 302 stands for "Chuckling Goat". These have different visual appearances in PDF'
+required:
+    - firstname
+    - lastname
+    - middlename
+    - locale
+    - partner_id
+    - user_id

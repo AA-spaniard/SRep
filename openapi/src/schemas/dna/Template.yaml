@@ -1,0 +1,78 @@
+type: object
+description: 'This field lists which exactly blocks to show. Order is not significant'
+required:
+    - blocks
+properties:
+    blocks:
+        type: array
+        items:
+            type: object
+            required:
+                - id
+                - render
+            properties:
+                id:
+                    type: string
+                    enum:
+                        - frontPage
+                        - tableOfContents
+                        - glossary
+                        - ancestry
+                        - risks
+                        - monogens
+                        - drugs
+                        - pharmacogeneticsDrugs
+                        - pharmacogeneticsCytochromes
+                        - hereditaryCancers
+                        - pharmaReaction
+                        - otherHealthRelatedTraits
+                        - nutrition
+                        - sport
+                        - traits
+                        - cosmetology
+                        - mensHealth
+                        - womensHealth
+                        - dnaLegacySnps
+                        - sourceInfo
+                        - publications
+                        - shortReport
+                render:
+                    type: boolean
+    empty_blocks:
+        type: array
+        items:
+            type: object
+            properties:
+                follows_block_with_id:
+                    type: string
+                    enum:
+                        - frontPage
+                        - sourceInfo
+                        - glossary
+                        - tableOfContents
+                        - shortReport
+                        - risks
+                        - monogens
+                        - hereditaryCancers
+                        - pharmacogeneticsDrugs
+                        - pharmacogeneticsCytochromes
+                        - drugs
+                        - otherHealthRelatedTraits
+                        - pharmaReaction
+                        - cosmetology
+                        - mensHealth
+                        - womensHealth
+                        - nutrition
+                        - publications
+                        - sport
+                        - traits
+                        - ancestry
+                section_title:
+                    type: string
+                    description: 'Human-readable name of the empty block the way user will see it in the report'
+                pages_count:
+                    type: integer
+                required:
+                    - follows_block_with_id
+                    - section_title
+                    - pages_count

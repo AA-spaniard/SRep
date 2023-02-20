@@ -1,0 +1,20 @@
+type: object
+properties:
+    publications:
+        type: object
+        description: 'Publications'' field names have to be defined as localization keys in PDF generator''s dictionary'
+        additionalProperties:
+            type: array
+            items:
+                type: object
+                required:
+                    - title
+                    - descr
+                    - link
+                properties:
+                    title:
+                        type: string
+                    descr:
+                        type: string
+                    link:
+                        type: string

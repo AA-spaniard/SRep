@@ -1,0 +1,21 @@
+type: object
+properties:
+  type:
+    type: string
+    enum: [ dna, dna-wgs, microbiome ]
+  barcode:
+    type: string
+  is_b2c:
+    description: Asssume b2b if the field is absent
+    type: boolean
+  picked:
+    type: string
+    nullable: true
+    format: date-time
+  biomaterial_type:
+    description: Required for dna. Has to be known dictionary key
+    type: string
+required:
+  - type
+  - barcode
+  - picked

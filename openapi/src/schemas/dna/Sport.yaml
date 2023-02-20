@@ -1,0 +1,13 @@
+type: object
+properties:
+    sport:
+        type: array
+        items:
+            allOf:
+                -   $ref: './GenericTopic.yaml'
+                -   type: object
+                    required: [ type ]
+                    properties:
+                        type:
+                            type: string
+                            enum: [ physiologyAndMetabolism, sportRisks ]

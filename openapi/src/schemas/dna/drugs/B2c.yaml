@@ -1,0 +1,49 @@
+title: 'B2C'
+type: array
+items:
+    type: object
+    required:
+        - name
+        - short_recommendation
+        - definition
+        - pharmacogenetics_recommendations
+        - chart
+    properties:
+        name:
+            type: string
+        short_recommendation:
+            type: string
+        definition:
+            type: string
+        pharmacogenetics_recommendations:
+            type: string
+        chart:
+            type: object
+            required:
+                - val
+            properties:
+                val:
+                    type: integer
+                    enum: [ 0, 1, 2, 3 ]
+        genetics:
+            type: object
+            required:
+                - descr
+            properties:
+                descr:
+                    type: string
+                table:
+                    description: 'Ignored for entries with chart.val < 2. It has a redundant single element array wrapper'
+                    type: array
+                    minItems: 1
+                    maxItems: 1
+                    items:
+                        type: object
+                        required:
+                            - trait
+                            - state_description
+                        properties:
+                            trait:
+                                type: string
+                            state_description:
+                                type: string

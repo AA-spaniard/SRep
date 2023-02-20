@@ -1,0 +1,37 @@
+type: array
+items:
+    type: object
+    required:
+        - title
+        - description
+        - diplotypes
+        - metabolizers
+    properties:
+        title:
+            type: string
+        description:
+            type: string
+        diplotypes:
+            type: array
+            items:
+                type: object
+                required:
+                    - probability
+                    - diplotype
+                properties:
+                    diplotype:
+                        type: string
+                    probability:
+                        type: number
+        metabolizers:
+            type: array
+            items:
+                type: object
+                required:
+                    - probability
+                    - title
+                properties:
+                    title:
+                        type: string
+                    probability:
+                        type: number

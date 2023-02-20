@@ -1,0 +1,24 @@
+title: 'B2B'
+type: array
+items:
+    type: object
+    required:
+        - section_id
+        - title
+        - recommendation
+    properties:
+        section_id:
+            description: 'Has to have an according entry in drug_sections'
+            type: string
+        title:
+            type: string
+        recommendation:
+            type: object
+            required:
+                - title
+                - level
+            properties:
+                title:
+                    type: string
+                level:
+                    type: string

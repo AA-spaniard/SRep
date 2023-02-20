@@ -1,0 +1,48 @@
+type: array
+items:
+    type: object
+    required:
+        - topic_search_id
+        - organ_system
+        - descr
+        - family
+    properties:
+        topic_search_id:
+            type: string
+        organ_system:
+            type: string
+        descr:
+            type: string
+        family:
+            type: array
+            items:
+                type: object
+                required:
+                    - color
+                    - percent
+                    - text
+                properties:
+                    color:
+                        type: string
+                    percent:
+                        type: string
+                    text:
+                        type: string
+        snips:
+            description: 'Each key is a snip name like "rs80357906"'
+            additionalProperties:
+                type: object
+                required:
+                    - normalAllele
+                    - diseaseAllele
+                    - userGenotype
+                    - gene
+                properties:
+                    normalAllele:
+                        type: string
+                    diseaseAllele:
+                        type: string
+                    userGenotype:
+                        type: string
+                    gene:
+                        type: string

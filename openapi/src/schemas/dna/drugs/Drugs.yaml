@@ -1,0 +1,22 @@
+type: object
+properties:
+    drugs:
+        description: 'WGS only. B2B and B2C versions of the Drugs block are two completely different blocks. B2C drugs is called "drugs" in template. B2B is called "pharmacogeneticsDrugs" in template'
+        oneOf:
+            -   $ref: './B2b.yaml'
+            -   $ref: './B2c.yaml'
+    drug_sections:
+        description: 'Needed only for B2B drugs block'
+        type: array
+        items:
+            type: object
+            required:
+                - id
+                - title
+            properties:
+                id:
+                    type: string
+                title:
+                    type: string
+    cytochromes:
+        $ref: './Cytochromes.yaml'

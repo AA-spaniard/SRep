@@ -1,0 +1,28 @@
+openapi: 3.0.0
+info:
+    title: PDF Report Generator
+    description: The view-layer stateless PDF-file generator. For printing of DNA/Biota test results for consumers and medical professionals
+    version: 0.0.0
+
+servers:
+    - url: http://localhost:8000
+
+paths:
+    /:
+        post:
+            summary: Generate a report
+            description: "This is the only route needed for production use. All differences like report types are inferred from the json in the request body"
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            $ref: './schemas/GenerationRequest.yaml'
+            responses:
+                '200':
+                    description: A PDF-file
+                    content:
+                        application/pdf:
+                            schema:
+                                type: string
+                                format: binary
